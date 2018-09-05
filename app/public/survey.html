@@ -1,0 +1,442 @@
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <title>FriendFinder</title>
+
+  <!-- Latest compiled and minified CSS & JS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  <!-- Font Awesome Glyphicons -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
+  <!-- Chosen -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h2>Survey Questions</h2>
+    <hr>
+
+    <h3><strong>About You</strong></h3>
+    <h4>Name (Required)</h4>
+    <input type="text" id="name" class="form-control" required="">
+
+    <h4>Link to Photo Image (Required)</h4>
+    <input type="text" id="photo" class="form-control" required="">
+
+    <hr>
+
+    <h3><strong>Question 1</strong></h3>
+    <h4>Your mind is always buzzing with unexplored ideas and plans.</h4>
+    <select class="chosen-select" id="q1" style="display: none;">
+      <option value=""></option>
+      <option value="1">1 (Strongly Disagree)</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5 (Strongly Agree)</option>
+    </select><div class="chosen-container chosen-container-single" style="width: 155px;" title="" id="q1_chosen"><a class="chosen-single chosen-default"><span>Select an Option</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off"></div><ul class="chosen-results"></ul></div></div>
+
+    <h3><strong>Question 2</strong></h3>
+    <h4>Generally speaking, you rely more on your experience than your imagination.</h4>
+    <select class="chosen-select" id="q2" style="display: none;">
+      <option value=""></option>
+      <option value="1">1 (Strongly Disagree)</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5 (Strongly Agree)</option>
+    </select><div class="chosen-container chosen-container-single" style="width: 155px;" title="" id="q2_chosen"><a class="chosen-single chosen-default"><span>Select an Option</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off"></div><ul class="chosen-results"></ul></div></div>
+
+
+    <h3><strong>Question 3</strong></h3>
+    <h4>You find it easy to stay relaxed and focused even when there is some pressure.</h4>
+    <select class="chosen-select" id="q3" style="display: none;">
+      <option value=""></option>
+      <option value="1">1 (Strongly Disagree)</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5 (Strongly Agree)</option>
+    </select><div class="chosen-container chosen-container-single" style="width: 155px;" title="" id="q3_chosen"><a class="chosen-single chosen-default"><span>Select an Option</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off"></div><ul class="chosen-results"></ul></div></div>
+
+
+    <h3><strong>Question 4</strong></h3>
+    <h4>You rarely do something just out of sheer curiosity.</h4>
+    <select class="chosen-select" id="q4" style="display: none;">
+      <option value=""></option>
+      <option value="1">1 (Strongly Disagree)</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5 (Strongly Agree)</option>
+    </select><div class="chosen-container chosen-container-single" style="width: 155px;" title="" id="q4_chosen"><a class="chosen-single chosen-default"><span>Select an Option</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off"></div><ul class="chosen-results"></ul></div></div>
+
+
+    <h3><strong>Question 5</strong></h3>
+    <h4>People can rarely upset you.</h4>
+    <select class="chosen-select" id="q5" style="display: none;">
+      <option value=""></option>
+      <option value="1">1 (Strongly Disagree)</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5 (Strongly Agree)</option>
+    </select><div class="chosen-container chosen-container-single" style="width: 155px;" title="" id="q5_chosen"><a class="chosen-single chosen-default"><span>Select an Option</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off"></div><ul class="chosen-results"></ul></div></div>
+
+
+    <h3><strong>Question 6</strong></h3>
+    <h4>It is often difficult for you to relate to other people’s feelings.</h4>
+    <select class="chosen-select" id="q6" style="display: none;">
+      <option value=""></option>
+      <option value="1">1 (Strongly Disagree)</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5 (Strongly Agree)</option>
+    </select><div class="chosen-container chosen-container-single" style="width: 155px;" title="" id="q6_chosen"><a class="chosen-single chosen-default"><span>Select an Option</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off"></div><ul class="chosen-results"></ul></div></div>
+
+
+    <h3><strong>Question 7</strong></h3>
+    <h4>In a discussion, truth should be more important than people’s sensitivities.</h4>
+    <select class="chosen-select" id="q7" style="display: none;">
+      <option value=""></option>
+      <option value="1">1 (Strongly Disagree)</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5 (Strongly Agree)</option>
+    </select><div class="chosen-container chosen-container-single" style="width: 155px;" title="" id="q7_chosen"><a class="chosen-single chosen-default"><span>Select an Option</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off"></div><ul class="chosen-results"></ul></div></div>
+
+    <h3><strong>Question 8</strong></h3>
+    <h4>You rarely get carried away by fantasies and ideas.</h4>
+    <select class="chosen-select" id="q8" style="display: none;">
+      <option value=""></option>
+      <option value="1">1 (Strongly Disagree)</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5 (Strongly Agree)</option>
+    </select><div class="chosen-container chosen-container-single" style="width: 155px;" title="" id="q8_chosen"><a class="chosen-single chosen-default"><span>Select an Option</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off"></div><ul class="chosen-results"></ul></div></div>
+
+    <h3><strong>Question 9</strong></h3>
+    <h4>You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</h4>
+    <select class="chosen-select" id="q9" style="display: none;">
+      <option value=""></option>
+      <option value="1">1 (Strongly Disagree)</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5 (Strongly Agree)</option>
+    </select><div class="chosen-container chosen-container-single" style="width: 155px;" title="" id="q9_chosen"><a class="chosen-single chosen-default"><span>Select an Option</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off"></div><ul class="chosen-results"></ul></div></div>
+
+    <h3><strong>Question 10</strong></h3>
+    <h4>You feel more energetic after spending time with a group of people.</h4>
+    <select class="chosen-select" id="q10" style="display: none;">
+      <option value=""></option>
+      <option value="1">1 (Strongly Disagree)</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5 (Strongly Agree)</option>
+    </select><div class="chosen-container chosen-container-single" style="width: 155px;" title="" id="q10_chosen"><a class="chosen-single chosen-default"><span>Select an Option</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off"></div><ul class="chosen-results"></ul></div></div>
+
+    <br>
+    <br>
+
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i class="fa fa-check-circle" aria-hidden="true"></i>
+     Submit</button>
+
+    <hr>
+    <footer class="footer">
+      <div class="container">
+        <p><a href="/api/friends">API Friends List</a> | <a href="https://github.com/afhaque/friendfinder">GitHub Repo</a></p>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Modal -->
+  <div id="results-modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">×</button>
+          <h2 class="modal-title"><strong>Best Match</strong></h2>
+        </div>
+        <div class="modal-body">
+          <h2 id="match-name"></h2>
+          <img id="match-img" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg" alt="">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    // Chosen CSS
+    var config = {
+      ".chosen-select": {},
+      ".chosen-select-deselect": {
+        allow_single_deselect: true
+      },
+      ".chosen-select-no-single": {
+        disable_search_threshold: 10
+      },
+      ".chosen-select-no-results": {
+        no_results_text: "Oops, nothing found!"
+      },
+      ".chosen-select-width": {
+        width: "95%"
+      }
+    };
+
+    for (var selector in config) {
+      $(selector).chosen(config[selector]);
+    }
+
+    // Capture the form inputs
+    $("#submit").on("click", function(event) {
+      event.preventDefault();
+
+      // Form validation
+      function validateForm() {
+        var isValid = true;
+        $(".form-control").each(function() {
+          if ($(this).val() === "") {
+            isValid = false;
+          }
+        });
+
+        $(".chosen-select").each(function() {
+
+          if ($(this).val() === "") {
+            isValid = false;
+          }
+        });
+        return isValid;
+      }
+
+      // If all required fields are filled
+      if (validateForm()) {
+        // Create an object for the user"s data
+        var userData = {
+          name: $("#name").val(),
+          photo: $("#photo").val(),
+          scores: [
+            $("#q1").val(),
+            $("#q2").val(),
+            $("#q3").val(),
+            $("#q4").val(),
+            $("#q5").val(),
+            $("#q6").val(),
+            $("#q7").val(),
+            $("#q8").val(),
+            $("#q9").val(),
+            $("#q10").val()
+          ]
+        };
+
+        // AJAX post the data to the friends API.
+        $.post("/api/friends", userData, function(data) {
+
+          // Grab the result from the AJAX post so that the best match's name and photo are displayed.
+          $("#match-name").text(data.name);
+          $("#match-img").attr("src", data.photo);
+
+          // Show the modal with the best match
+          $("#results-modal").modal("toggle");
+
+        });
+      } else {
+        alert("Please fill out all fields before submitting!");
+      }
+    });
+  </script>
+
+
+
+
+</body></html>
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Tables Page</title>
+
+   Latest compiled and minified CSS & JS 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="jumbotron">
+      <h1 class="text-center"><span class="fa fa-fire"></span> Hot Restaurant</h1>
+      <hr>
+      <h2 class="text-center">Current Reservations and Waiting List</h2>
+      <br>
+
+      <div class="text-center">
+        <a href="/reserve"><button class="btn btn-lg btn-danger"><span class="fa fa-credit-card"></span> Make Reservation</button></a>
+        <a href="/"><button class="btn btn-lg btn-default"><span class="fa fa-home"></span></button></a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+
+         Current Tables in Use 
+        <div class="card">
+          <div class="card-header">
+            <h4>Current Reservations</h4>
+          </div>
+          <div class="card-body">
+            <ul id="tableList" class="list-group"></ul>
+          </div>
+        </div>
+
+         Waiting List Card 
+        <div class="card mt-4">
+          <div class="card-header">
+            <h4>Waiting List</h4>
+          </div>
+          <div class="card-body">
+            <ul id="waitList" class="list-group"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <footer class="footer mt-4">
+      <div class="container">
+        <p>Control Panel</p>
+        <p><a href="#" id="clear">Clear Table</a> | <a href="/api/tables">API Table Link</a> | <a href="/api/waitlist">API
+            Wait List</a>
+      </div>
+    </footer>
+
+  </div>
+
+</body> -->
+
+
+<!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS LOADED FROM OUR SERVER -->
+<script type="text/javascript">
+
+  // In this code, jQuery is used to "download" the data from our server
+  // We then dynamically display this content in our table. This is very similar to the group projects you just completed.
+  // It's also very similar to the NYT search application. In fact, I copied a ton of code from there.
+
+  function runTableQuery() {
+    // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
+    $.ajax({ url: "/api/tables", method: "GET" })
+      .then(function(tableData) {
+
+        // Here we then log the tableData to console, where it will show up as an object.
+        console.log(tableData);
+        console.log("------------------------------------");
+
+        // Loop through and display each of the customers
+        for (var i = 0; i < tableData.length; i++) {
+
+          // Get a reference to the tableList element and populate it with tables
+          var tableList = $("#tableList");
+
+          // Then display the fields in the HTML (Section Name, Date, URL)
+          var listItem = $("<li class='list-group-item mt-4'>");
+
+          listItem.append(
+            $("<h2>").text("Table #" + (i + 1)),
+            $("<hr>"),
+            $("<h2>").text("ID: " + tableData[i].customerID),
+            $("<h2>").text("Name: " + tableData[i].customerName),
+            $("<h2>").text("Email: " + tableData[i].customerEmail),
+            $("<h2>").text("Phone: " + tableData[i].phoneNumber)
+          );
+
+          tableList.append(listItem);
+        }
+      });
+  }
+
+  function runWaitListQuery() {
+
+    // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
+    $.ajax({ url: "/api/waitlist", method: "GET" })
+      .then(function(waitData) {
+
+        // Here we then log the waitlistData to console, where it will show up as an object.
+        console.log(waitData);
+        console.log("------------------------------------");
+
+        // Loop through and display each of the customers
+        for (var i = 0; i < waitData.length; i++) {
+
+          // Get a reference to the waitList element and populate it with tables
+          var waitList = $("#waitList");
+
+          // Then display the fields in the HTML (Section Name, Date, URL)
+          var listItem = $("<li class='list-group-item mt-4'>");
+
+          listItem.append(
+            $("<h2>").text("Table #" + (i + 1)),
+            $("<hr>"),
+            $("<h2>").text("ID: " + waitData[i].customerID),
+            $("<h2>").text("Name: " + waitData[i].customerName),
+            $("<h2>").text("Email: " + waitData[i].customerEmail),
+            $("<h2>").text("Phone: " + waitData[i].phoneNumber)
+          );
+
+          waitList.append(listItem);
+        }
+      });
+  }
+
+  // This function resets all of the data in our tables. This is intended to let you restart a demo.
+  function clearTable() {
+    alert("Clearing...");
+
+    // Clear the tables on the server and then empty the elements on the client
+    $.ajax({ url: "/api/clear", method: "POST" }).then(function() {
+      $("#waitList").empty();
+      $("#tableList").empty();
+    });
+  }
+
+  $("#clear").on("click", clearTable);
+
+
+  // Run Queries!
+  // ==========================================
+  runTableQuery();
+  runWaitListQuery();
+
+
+</script>
+
+</html> 
