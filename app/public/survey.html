@@ -157,22 +157,19 @@
 
 				<!-- MODAL WILL NOT PROVIDE RESULT MATCH!!! -->
 
-				<!-- Not certain whether is is a faulty path to the modal or if the javascript
-				within the api routes or survey.html are not calculating which in turn nothing in modal
-			    Extremely focused to get result in modal. No console erros and connectivity seems to be running -->
+				<!-- VERY CLOSE TO RUNNING PROPERLY, MUST COMPLET FOR LOOP WITHIN compareInputWithResult global variable -->
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h2 class="modal-title"><strong>Best Match</strong></h2>
+						<h2 class="modal-title"><strong>Your Match</strong></h2>
 					</div>
 					<div class="modal-body">
-						<form action="localhost:8080" method='post'>
-							<div class="form-group">
-								<h3 id="matchName"></h3>
-								<img id="matchImg" src="" alt="">
-							</div>
-						</form>
+
+						<h3 id="matchName"></h3>
+						<img id="matchImg" src="" alt="">
+
 					</div>
+
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 					</div>
@@ -181,14 +178,13 @@
 			</div>
 		</div>
 
-		<!-- //This section sends form data to our server -->
-		<script src="https://code.jquery.com/jquery-3.3.1.js" crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
 		<script src="https://code.jquery.com/jquery.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
 
 		<script type="text/javascript">
-			// Chosen CSS
+
 			var config = {
 				'.chosen-select': {},
 				'.chosen-select-deselect': { allow_single_deselect: true },
@@ -199,45 +195,87 @@
 			for (var selector in config) {
 				$(selector).chosen(config[selector]);
 			}
-			// Capture the form inputs 
+
+
+			var displayResult = function (data) {
+				$("#matchName").text(data.name);
+				$('#matchImg').attr("src", data.photo);
+				$("#resultsModal").modal("toggle");
+
+			};
+
+			var compareInputWithResult = function (input, result) {
+				console.log(input);
+				console.log(result);
+				var match = {};
+				for (var i = 0; i< result.length; i++){
+					// PSUEDOCODE FOR THIS FOR LOOP
+
+					// add up result scores
+					// add up input scores
+					// subtract input scores from result scores
+					// save lowest results to the match object
+					// if lowest, save object to match 
+					
+				}
+				return displayResults(match);
+			};
+
+
+			// Capture form inputs 
 			$("#submit").on("click", function () {
+				event.preventDefault();
 				// Form validation
 				function validateForm() {
 					var isValid = true;
 					$('.form-control').each(function () {
-						if ($(this).val() === '')
+						if ($(this).val() === '') {
 							isValid = false;
+						}
 					});
 					$('.chosen-select').each(function () {
-						if ($(this).val() === "")
+						if ($(this).val() === '') {
 							isValid = false
-					})
+						}
+					});
 					return isValid;
 				}
-				// If all required fields are filled
-				if (validateForm() == true) {
-					// Create an object for the user's data
-					var userData = {
+				
+				// Form filled out properly, if statment will run
+				if (validateForm()) {
+					// Create an object from user's data
+					var input = {
 						name: $("#name").val(),
 						photo: $("#photo").val(),
-						scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5").val(), $("#q6").val(), $("#q7").val(), $("#q8").val(), $("#q9").val(), $("#q10").val(),]
-					}
+						scores: [
+							$("#q1").val(),
+							$("#q2").val(),
+							$("#q3").val(),
+							$("#q4").val(),
+							$("#q5").val(),
+							$("#q6").val(),
+							$("#q7").val(),
+							$("#q8").val(),
+							$("#q9").val(),
+							$("#q10").val()
+						]
+					};
 					// Grab the URL of the website
 					var currentURL = window.location.origin;
-					// AJAX post the data to the friends API. 
-					$.post(currentURL + "/api/friends", userData, function (data) {
-						// Grab the result from the AJAX post so that the best match's name and photo are displayed.
-						$("#matchName").text(data.name);
-						$('#matchImg').attr("src", data.photo);
-						$("#resultsModal").modal("show");
-
+					$.ajax({
+						url: "/api/friends",
+						success: function (result) {
+							compareInputWithResult(input, result);
+						},
+						type: "GET"
 					});
+				
 				}
 				else {
 					alert("Please fill out all fields before submitting!");
 				}
 
-				return false;
+				
 			});
 		</script>
 
