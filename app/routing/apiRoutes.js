@@ -35,17 +35,24 @@ module.exports = function(app){
 
             // Loop through all the scores of each friend
             for (var j=0; j< friends[i].scores[j]; j++) {
+                // console.log(friends[i].scores);
 
                 // Calculating the difference between the scores and sum them into the totalDifference
                 totalDifference += Math.abs(parseInt(userScores[j]) - parseInt(friends[i].scores[j]));
-
+                console.log(totalDifference);
                 // If the sum of differences is less then the differences of "great match"
-                if (totalDifference <= greatMatch.friendDifference) {
-
+                if (totalDifference <= greatMatch.matchDifference) {
+                    console.log(true);
                     greatMatch.name = friends[i].name;
                     greatMatch.photo = friends[i].photo;
-                    greatMatch.friendDifference = totalDifference;
+                    greatMatch.matchDifference = totalDifference;
+
+                    
                 }
+                else {
+                    console.log(false);
+                }
+                console.log(greatMatch);
             }
         }
       

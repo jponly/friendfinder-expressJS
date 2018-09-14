@@ -152,7 +152,7 @@
 		</div>
 
 		<!-- Modal -->
-		<div id="resultsModal" class="modal fade" role="dialog">
+		<div id="results-modal" class="modal fade" role="dialog">
 			<div class="modal-dialog">
 
 				<!-- MODAL WILL NOT PROVIDE RESULT MATCH!!! -->
@@ -165,8 +165,8 @@
 					</div>
 					<div class="modal-body">
 
-						<h3 id="matchName"></h3>
-						<img id="matchImg" src="" alt="">
+						<h3 id="match-name"></h3>
+						<img id="match-img" src="" alt="">
 
 					</div>
 
@@ -184,7 +184,6 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
 
 		<script type="text/javascript">
-
 			var config = {
 				'.chosen-select': {},
 				'.chosen-select-deselect': { allow_single_deselect: true },
@@ -192,59 +191,37 @@
 				'.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
 				'.chosen-select-width': { width: "95%" }
 			}
+
 			for (var selector in config) {
 				$(selector).chosen(config[selector]);
 			}
 
-
-			var displayResult = function (data) {
-				$("#matchName").text(data.name);
-				$('#matchImg').attr("src", data.photo);
-				$("#resultsModal").modal("toggle");
-
-			};
-
-			var compareInputWithResult = function (input, result) {
-				console.log(input);
-				console.log(result);
-				var match = {};
-				for (var i = 0; i < result.length; i++) {
-					// PSUEDOCODE FOR THIS FOR LOOP
-
-					// add up result scores
-					// add up input scores
-					// subtract input scores from result scores
-					// save lowest results to the match object
-					// if lowest, save object to match 
-
-				}
-				return displayResults(match);
-			};
-
-
-			// Capture form inputs 
-			$("#submit").on("click", function () {
+			// Capture the form inputs
+			$("#submit").on("click", function (event) {
 				event.preventDefault();
+
 				// Form validation
 				function validateForm() {
 					var isValid = true;
-					$('.form-control').each(function () {
-						if ($(this).val() === '') {
+					$(".form-control").each(function () {
+						if ($(this).val() === "") {
 							isValid = false;
 						}
 					});
-					$('.chosen-select').each(function () {
-						if ($(this).val() === '') {
-							isValid = false
+
+					$(".chosen-select").each(function () {
+
+						if ($(this).val() === "") {
+							isValid = false;
 						}
 					});
 					return isValid;
 				}
 
-				// Form filled out properly, if statment will run
+				// If all required fields are filled
 				if (validateForm()) {
-					// Create an object from user's data
-					var input = {
+					// Create an object for the user"s data
+					var userData = {
 						name: $("#name").val(),
 						photo: $("#photo").val(),
 						scores: [
@@ -260,26 +237,25 @@
 							$("#q10").val()
 						]
 					};
-					// Grab the URL of the website
-					var currentURL = window.location.origin;
-					$.ajax({
-						url: "/api/friends",
-						success: function (result) {
-							compareInputWithResult(input, result);
-						},
-						type: "GET"
-					});
 
-				}
-				else {
+					// AJAX post the data to the friends API.
+					$.post("/api/friends", userData, function (data) {
+							console.log(data);
+							console.log(data.name);
+						// Grab the result from the AJAX post so that the best match's name and photo are displayed.
+						$("#match-name").text(data.name);
+						$("#match-img").attr("src", data.photo);
+
+						// Show the modal with the best match
+						$("#results-modal").modal("toggle");
+
+					});
+				} else {
 					alert("Please fill out all fields before submitting!");
 				}
-
-
 			});
+
 		</script>
-
-
 
 
 </body>
